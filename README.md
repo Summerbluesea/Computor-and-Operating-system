@@ -1,1 +1,1 @@
-# The basic knowledges of linux operating system 
+# The basic knowledges of linux 
