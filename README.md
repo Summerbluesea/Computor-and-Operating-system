@@ -1,1 +1,1 @@
-# Computor-and-Operating-system
+# The basic knowledges of linux operating system 
