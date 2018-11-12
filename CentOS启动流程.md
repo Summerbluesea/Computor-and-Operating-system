@@ -1,0 +1,1 @@
+！[image](https://github.com/Summerbluesea/img-folder/blob/master/CentOS%E5%90%AF%E5%8A%A8%E6%B5%81%E7%A8%8B.png)
