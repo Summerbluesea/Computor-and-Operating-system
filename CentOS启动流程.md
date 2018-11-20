@@ -1,1 +1,0 @@
-![image](https://github.com/Summerbluesea/img-folder/blob/master/CentOS.png)
