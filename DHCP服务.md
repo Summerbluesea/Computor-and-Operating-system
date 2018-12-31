@@ -1,6 +1,9 @@
 # DHCP 服务详解
 
-DHCP，Dynamic Host Configuration Protocol，动态主机配置协议；基于C/S架构，服务器端监听于67/udp端口，客户端监听于68/udp端口；DHCP server在接收到客户端的请求时，分配可用的ip/netmask, gateway,DNS server等资源给客户端，DHCP server分配给客户端ip地址都有一个租期，客户端在此租期过半时需要向server发续租请求，如果因种种原因没有续租成功，到达租期后，server会收回此ip地址并标记为可用地址分配给其它客户端，DHCP服务可以缓解局域网内ip地址不够用的情况；
+DHCP，Dynamic Host Configuration Protocol，动态主机配置协议；
+基于C/S架构，服务器端监听于67/udp端口，客户端监听于68/udp端口；
+DHCP server在接收到客户端的请求时，分配可用的ip/netmask, gateway,DNS server等资源给客户端，DHCP server分配给客户端ip地址都有一个租期，客户端在此租期过半时需要向server发续租请求，如果因种种原因没有续租成功，到达租期后，server会收回此ip地址并标记为可用地址分配给其它客户端，DHCP服务可以缓解局域网内ip地址不够用的情况；
+
 ```bash
 dhcp Client 获取地址过程：
  client发布dhcp-discover广播报文 -->  Server收到dhcp-discover报文，给客户端发送dhcp-offer，dhcp-offer报文中包含可用的ip/netmask,gw等信息 --> 
