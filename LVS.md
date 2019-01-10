@@ -34,6 +34,7 @@ LVS(Linux Virtual Server)是一种LB集群调度器，也称为负载均衡集�
             七层：nginx, haproxy, Envoy, Traefik, Kong,...
 
 lvs：Linux Virtual Server 
+
         VS: Virtual Server；集群中的前端负载均衡器，因其自身不提供任何服务，所以称为虚拟服务器；
         RS: Real Server；RS是后端真正提供服务的服务器；
 
@@ -46,7 +47,8 @@ lvs：Linux Virtual Server
         ipvs:工作于内核空间netfilter的INPUT链的框架；
         ipvsadm: 用户空间的命令行工具，规则管理器，用于管理集群服务及相关的RealServer；
 
-    **lvs的调度算法**
+  lvs的调度算法
+  
         lvs的调度算法以模块方式内建于linux内核中
 
         查看内核配置文件中关于ip_vs配置参数：grep -i "ip_vs" /boot/config-kernel_version.x86_64
@@ -75,6 +77,7 @@ lvs：Linux Virtual Server
                 有状态：sh
 
   lvs type
+  
         lvs的工作拓扑结构和转发机制：
 
             lvs-nat:多目标DNAT，通过修改请求报文的目标ip和端口为经调度算法挑选出的某后端RS的RIP和RPORT;
@@ -134,6 +137,7 @@ lvs：Linux Virtual Server
                 注意：此类型默认不支持；
 
  ipvsadm管理工具：
+ 
         程序包：ipvsadm
         安装： yum -y install ipvsadm 
         配置文件：/etc/sysconfig/ipvsadm-config; 生成的规则可以利用工具保存于此配置文件中，实现永久有效；
@@ -252,6 +256,7 @@ lvs：Linux Virtual Server
 
 
  FWM：FireWall Mark 
+ 
             netfilter：
             target: MARK, This  target  is  used  to set the Netfilter mark value associated with the packet.
 
