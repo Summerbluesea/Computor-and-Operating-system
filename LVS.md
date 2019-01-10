@@ -34,10 +34,10 @@ LVS(Linux Virtual Server)是一种LB集群调度器，也称为负载均衡集�
             七层：nginx, haproxy, Envoy, Traefik, Kong,...
 
 lvs：Linux Virtual Server 
-        VS: Virtual Server
-        RS: Real Server
+        VS: Virtual Server；集群中的前端负载均衡器，因其自身不提供任何服务，所以称为虚拟服务器；
+        RS: Real Server；RS是后端真正提供服务的服务器；
 
-        作者：章文嵩；
+       
 
         l4：四层路由器，四层交换机；
            VS：根据请求报文的目标IP和目标协议及端口将其调度转发至某RealServer，根据调度算法来挑选RS；
@@ -291,8 +291,5 @@ lvs：Linux Virtual Server
                 ipvsadm -a -t 172.18.140.1:0 -r -172.18.136.125 -g -w 1
                 ipvsadm -a -t 172.18.140.1:0 -r 172.18.135.51 -g -w 2 
 
-实践作业：
-    负载均衡两个php应用(wordpress,discuzx)
-    测试：(1) 是否需要会话保持(2) 是否需要共享存储；
-    至少两个RS 
+
  
