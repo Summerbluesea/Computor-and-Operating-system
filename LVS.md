@@ -74,7 +74,7 @@ lvs：Linux Virtual Server
                 长连接，有状态：wls
                 有状态：sh
 
-    **lvs type** 
+  lvs type
         lvs的工作拓扑结构和转发机制：
 
             lvs-nat:多目标DNAT，通过修改请求报文的目标ip和端口为经调度算法挑选出的某后端RS的RIP和RPORT;
@@ -133,7 +133,7 @@ lvs：Linux Virtual Server
 
                 注意：此类型默认不支持；
 
-    ipvsadm管理工具：
+ ipvsadm管理工具：
         程序包：ipvsadm
         安装： yum -y install ipvsadm 
         配置文件：/etc/sysconfig/ipvsadm-config; 生成的规则可以利用工具保存于此配置文件中，实现永久有效；
@@ -206,7 +206,7 @@ lvs：Linux Virtual Server
         保存和重载：
             ipvsadm -S = ipvsadm-save
 
-    模拟lvs-nat实验：
+ 模拟lvs-nat实验：
         1. 使用docker启动两个httpd容器做RS，宿主机做VS(director)
             # docker run --name web1 -it -v /vols/web1:/var/www/html busybox
             # docker run --name web2 -it -v /vols/web2:/var/www/html busybox
@@ -251,7 +251,7 @@ lvs：Linux Virtual Server
                 #ipvsadm -a -t 172.18.140.1:80 -r 172.18.135.51:80 -g -w 2
 
 
-        FWM：FireWall Mark 
+ FWM：FireWall Mark 
             netfilter：
             target: MARK, This  target  is  used  to set the Netfilter mark value associated with the packet.
 
@@ -265,7 +265,7 @@ lvs：Linux Virtual Server
             基于标记定义集群服务：
             # ipvsadm -A -f NUMBER [options]
 
-    lvs持久连接 persistence connections 
+ lvs持久连接 persistence connections 
 
     调度器在第一次收到客户端请求并完成调度后将调度结果记录，每一条记录都有固定的TTL，达到TTL设定时间此纪录会自动删除；如果用户在TTL时间范围内再一次发出请求，调度器会查询记录并将请求直接发给相同的RS，实现无论使用任何调度算法，在一段时间内，能够将来自同一个地址的请求始终发往同一个RS；
 
