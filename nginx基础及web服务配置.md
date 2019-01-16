@@ -4,6 +4,7 @@ Nginx：
     NGINX is a free, open-source, high-performance HTTP server and reverse proxy, as well as an IMAP/POP3 proxy server. 
 
 并发连接响应：
+
     httpd MPM：
         prefork：进程模型，两级结构，主进程master负责生成子进程，每个子进程负责响应一个请求；
         worker：线程模型，三级结构，主进程master负责生成子进程，每个子进程负责生成多个线程，每个线程响应一个请求；
