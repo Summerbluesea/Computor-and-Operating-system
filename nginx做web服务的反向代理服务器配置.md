@@ -3,12 +3,14 @@
   **ngx_http_proxy_module**
 
     1. proxy_pass URL ;
-        Sets the protocol and address of a proxied server and an optional URI to which a location should be mapped.可以用于location, if in location, limit_except上下文；
+        设置后端服务器(proxied server)通信协议和地址和location匹配的映射关系；
+        Sets the protocol and address of a proxied server and an optional URI to which a location should be mapped.
+        可以用于location, if in location, limit_except上下文；
 
-        As a protocol: http or https:
+        可用通信协议protocol: http or https:
             proxy_pass http|https://FQDN|ip_addr[:port]/uri/;
 
-        Or as a UNIX-domain socket:
+        或者 as a UNIX-domain socket:
             proxy_pass http://unix:/path/to/unix.sock:/uri/; 
 
         location /uri {
