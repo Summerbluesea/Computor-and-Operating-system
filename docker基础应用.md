@@ -329,6 +329,7 @@ registry包括两个部分：
 ```      
 
 **Docker Networks**
+
 Docker为其管理的容器提供四种网络，可以在创建容器时指定；
    - 桥网络：bridge 
         - docker0 NAT
@@ -380,13 +381,17 @@ Docker为其管理的容器提供四种网络，可以在创建容器时指定�
     nameserver 172.18.0.1
     nameserver 8.8.8.8
 ```
+
 如果容器使用docker0的NAT桥网络，宿主机自动生成了docker0的SNAT规则，容器可以访问外部网络，但外部网络主机访问不到宿主机内的容器，需手动添加DNAT规则，通过访问宿主机的指定ip地址和端口实现容器提供的服务；
+
    - 将宿主机的指定ip地址的访问全部映射给容器的ip
      iptables -t nat -A PREROUTING -d 宿主机ip -j DNAT --to-destination 容器ip 
+     
    - 将对宿主机某ip的某端口访问映射给容器的某ip的某端口
       iptables -t nat -A PREROUTING -d 宿主机ip -p {tcp|udp} --dport 宿主机端口 -j DNAT --to-destination 容器ip:port
 
 使用docker run命令创建并运行容器时，可以使用-p选项，给出宿主机ip:port与容器ip:port的映射关系，会自动生成DNAT规则；
+
 ```bash
  -p 选项使用格式:
     -p <containerPORT>; 将容器的指定端口映射给宿主机所有ip的一个随机端口
